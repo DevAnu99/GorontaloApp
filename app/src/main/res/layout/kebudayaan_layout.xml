@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#f1feed">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/MyAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:fitsSystemWindows="true" >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapse_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/colorPrimary"
+            android:fitsSystemWindows="true"
+            app:expandedTitleMarginStart="10dp"
+            app:expandedTitleMarginEnd="10dp">
+            <ViewFlipper
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inAnimation="@anim/in_right"
+                android:outAnimation="@anim/out_left"
+                android:id="@+id/vfHead"
+                app:layout_collapseMode="parallax"
+                android:fitsSystemWindows="true">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rumah_adat"
+                        app:layout_collapseMode="parallax"
+                        android:fitsSystemWindows="true"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pakaian_adat"
+                    app:layout_collapseMode="parallax"
+                    android:fitsSystemWindows="true"/>
+                <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/tarian_tradisional"
+                app:layout_collapseMode="parallax"
+                android:fitsSystemWindows="true"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/alat_musik"
+                    app:layout_collapseMode="parallax"
+                    android:fitsSystemWindows="true"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/senjata"
+                    app:layout_collapseMode="parallax"
+                    android:fitsSystemWindows="true"/>
+            </ViewFlipper>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kebudayaan"
+                    android:layout_marginLeft="12dp"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp"
+                    android:id="@+id/txtBudaya1"
+                    android:layout_marginBottom="40dp" />
+            </LinearLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/MyToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ViewFlipper
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vfBody"
+            android:inAnimation="@anim/in_right"
+            android:outAnimation="@anim/out_left" >
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/sub_kebudayaan_rumah_adat" />
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/sub_kebudayaan_pakaian_adat" />
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/sub_kebudayaan_tarian_adat" />
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/sub_kebudayaan_alat_musik" />
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/sub_kebudayaan_senjata_tradisional" />
+        </ViewFlipper>
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_launcher"
+        app:layout_anchor="@+id/MyAppbar"
+        app:layout_anchorGravity="bottom|right|end"
+        android:id="@+id/fabNext" />
+</android.support.design.widget.CoordinatorLayout>
